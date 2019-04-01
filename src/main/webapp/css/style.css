@@ -1,0 +1,61 @@
+
+<html>
+<head>
+	<title>Home</title>
+	<style >
+	* {box-sizing: border-box;}
+		body
+		{
+			background-color: white;
+		}
+		.header
+		 {
+				overflow: hidden;
+				background-color: #6f92b2;
+				
+				box-shadow: 8px 5px 2px grey;
+				border-radius: 3px;
+
+		}
+		.header a
+		{
+			float: left;
+			text-decoration: none;
+			color: white;
+			font-size: 15px;
+			padding: 35px 10px;
+		}
+		.header a.name
+		{
+			font-size: 25px;
+			padding-left: 40px;
+			font-family: Roboto;
+		}
+		.header-right
+		{
+			float: right;
+		}
+		.header-right a
+		{
+			font-size: 20px;
+			font-family: Roboto;
+			padding-right: 35px;
+		}
+		
+
+
+
+
+	</style>
+</head>
+<body>
+		<div class="header">
+			<a href="#" class="name">House Rental Managment System</a>
+			<div class="header-right">
+				<a href="#">log In</a>
+				<a href="#">Sign Up</a>
+			</div>
+		</div>
+
+</body>
+</html>
