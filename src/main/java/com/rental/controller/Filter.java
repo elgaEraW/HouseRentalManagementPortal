@@ -7,20 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.rental.bin.Houses;
 import com.rental.model.HomeDB;
-import com.rental.model.HousesDB;
 
 /**
- * Servlet implementation class HousesData
+ * Servlet implementation class Filter
  */
-public class HousesData extends HttpServlet {
+public class Filter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HousesData() {
+    public Filter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,29 +37,28 @@ public class HousesData extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		Houses h = new Houses();
-		HousesDB hdb = new HousesDB(); 
-		//response.getWriter().print(s);
+		String bhk = request.getParameter("bhk");
+		String payment=request.getParameter("payment");
+		String type=request.getParameter("type");
+		String reset=request.getParameter("reset");
+
+		HomeDB hdb = new HomeDB();
+		String s[][]= null;
+		if(bhk!=null)
+			s = hdb.getFilteredBHKData(bhk);
+		else if(payment!=null)
+			s = hdb.getFilteredPaymentData(payment);
+		else if(type!=null)
+			s = hdb.getFilteredTypeData(type);
+		else if(reset!=null)
+			s = hdb.getData();
 		HttpSession session = request.getSession();
-		h.setUser((String)session.getAttribute("name"));
-		h.setAddress(request.getParameter("address"));
-		h.setResidental_detail(request.getParameter("residental_detail"));
-		h.setBhk(request.getParameter("bhk"));
-		h.setFloor(request.getParameter("floor"));
-		h.setAvailable_after(request.getParameter("available_after"));
-		h.setPayment_option(request.getParameter("payment_option"));
-		h.setAvailability(request.getParameter("availability"));
-		h.setPrice(request.getParameter("price"));
-		String st = hdb.insert(h);
-		HomeDB homedb = new HomeDB();
-		String[][] s = homedb.getData();
 		session.setAttribute("Data", s);
-		if(st.equals("Done")) {
-			session.setAttribute("Add", 0);
-			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/LoggedIn.jsp");
-		}
+		int state = (int)session.getAttribute("State");
+		if(state==0)
+			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/Home.jsp");
 		else
-			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/AddHouse.jsp");
+			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/LoggedIn.jsp");
 	}
 
 }

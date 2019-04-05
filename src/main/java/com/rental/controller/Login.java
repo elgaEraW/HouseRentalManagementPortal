@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.rental.model.HomeDB;
 import com.rental.model.HousesDB;
 import com.rental.model.UserDB;
 
@@ -43,13 +44,20 @@ public class Login extends HttpServlet {
 		String pass = request.getParameter("password");
 		UserDB ud = new UserDB();
 		String Final = ud.login(id, pass);
-		HttpSession sessionLogin = request.getSession();
-		sessionLogin.setAttribute("name", Final);
+		HttpSession session = request.getSession();
+		session.setAttribute("name", Final);
 		if(Final.equals("Enter Valid Email and Password"))
 			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/loginerror.jsp");
 		else {
-			sessionLogin.setAttribute("State",1);
-			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/LoggedIn.jsp");
+			session.setAttribute("State",1);
+			HomeDB hdb = new HomeDB();
+			String[][] s = hdb.getData();
+			session.setAttribute("Data", s);
+			int add = (int)session.getAttribute("Add");
+			if(add==1)
+				response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/AddHouse.jsp");
+			else
+				response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/LoggedIn.jsp");
 		}
 			
 		//response.getWriter().println("\n"+Final);

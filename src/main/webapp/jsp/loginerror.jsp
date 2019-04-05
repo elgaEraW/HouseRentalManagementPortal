@@ -58,7 +58,7 @@
 
 
 	</style>
-	 <link rel="stylesheet" href="C:\Users\meet.gamdha\Desktop\Mini Project\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+	 <link rel="stylesheet" href="C:\Users\Dev\Documents\workspace-spring-tool-suite-4-4.1.1.RELEASE\HouseRentalManagementPortal\src\main\webapp\css\bootstrap-4.3.1-dist\css\bootstrap.min.css">
 
 	
 </head>
@@ -72,9 +72,17 @@
 			<p>Please Enter Details to Log In</p>
 			<p>Enter Valid Email and Password!</p>
 
+<%
+	String name = (String)session.getAttribute("name");
+	int State = (int)session.getAttribute("State");
+	
+%>
 
 	
-    		
+    <%
+    if(State==1)
+		response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/LoggedIn.jsp"); 
+	%>	
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" autocomplete="off">
 

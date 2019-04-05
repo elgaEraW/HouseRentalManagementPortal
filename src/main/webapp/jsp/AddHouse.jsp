@@ -67,8 +67,14 @@
 
 	
     <%
-    if(State==0)
+    int Add = 0;
+    if(State==0){
+    	Add = 1;
+    	session.setAttribute("Add", Add);
 		response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/login.jsp"); 
+    }
+    else
+    	session.setAttribute("Add", Add);
 	%>	
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <div class="container-fluid">
@@ -109,12 +115,14 @@
          <input type="text" name="floor" id="Floor" placeholder="Enter Floor here" required pattern="[0-9]">
          <label for="availibility">Avail. After (In months)</label>
          <input type="text" name="available_after" id="time" placeholder="Enter availibility here" required pattern="[0-9]">
+         <label for="price">Price per month</label>
+         <input type="text" name="price" id="Price" placeholder="Enter price here">
           <label for="Payment">Payment option</label>
           <select name="payment_option" required>
           <option>Cash</option>
           <option>Online</option>
         </select>
-        <label for="abailability">availability</label> 
+        <label for="abailability">Availability(In Years)</label> 
          <input type="text" name="availability" id="BHK" placeholder="Enter availability here" required pattern="[0-9]">
 
         <button type="submit">Submit</button>

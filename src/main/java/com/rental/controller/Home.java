@@ -41,6 +41,8 @@ public class Home extends HttpServlet {
 		String[][] s = hdb.getData();
 		HttpSession session = request.getSession();
 		session.setAttribute("Data", s);
+		session.setAttribute("State", 0);
+		session.setAttribute("Add", 0);
 		response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/Home.jsp");
 		
 	}

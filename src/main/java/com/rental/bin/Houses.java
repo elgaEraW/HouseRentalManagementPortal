@@ -9,6 +9,15 @@ public class Houses {
 	private String payment_option;
 	private String availability;
 	private String user;
+	private String price;
+	
+	
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public String getResidental_detail() {
 		return residental_detail;
 	}

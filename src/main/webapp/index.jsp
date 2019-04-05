@@ -1,4 +1,4 @@
-
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <style>
 	img
 	{
@@ -10,12 +10,13 @@
 	{
 		margin-top: 50px;
 		border:2px solid black;	
-		width: 50%;
+		width: 40%;
 		background:transparent;	
-		padding-top:	5px;
-		padding-bottom: 5px;
+		padding-top:	8px;
+		padding-bottom: 8px;
 		border-radius: 30px;
 		font-size: 20px;
+		margin-left:420px;
 	}
 	button:hover
 	{
@@ -24,9 +25,11 @@
 	}
 	h1
 	{
+		margin-left:300px;
 		font-size: 60px;
 		padding-top: 160px;
 		color: black;
+		font-family:'Roboto';
 	}
 	
 </style>
