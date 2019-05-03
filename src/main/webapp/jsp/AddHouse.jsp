@@ -62,24 +62,30 @@
 <%
 	String name = (String)session.getAttribute("name");
 	int State = (int)session.getAttribute("State");
-	
-%>
+	int ref = (int)session.getAttribute("refresh");
+	%>
 
 	
     <%
     int Add = 0;
-    if(State==0){
-    	Add = 1;
-    	session.setAttribute("Add", Add);
-		response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/login.jsp"); 
+    if(ref==0){
+    	session.setAttribute("refresh",1);
+    	response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/AddHouse.jsp");
     }
-    else
-    	session.setAttribute("Add", Add);
+    else{
+	    if(State==0){
+	    	Add = 1;
+	    	session.setAttribute("Add", Add);
+			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/login.jsp"); 
+	    }
+	    else
+	    	session.setAttribute("Add", Add);
+    }
 	%>	
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="Home.jsp">House Renatal Managment System</a>
+      <a class="navbar-brand" href="LoggedIn.jsp">House Renatal Managment System</a>
     </div>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -87,7 +93,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="Home.jsp">Home</a>
+        <a class="nav-link" href="LoggedIn.jsp">Home</a>
       </li>
     </ul>
   </div> 
@@ -124,7 +130,8 @@
         </select>
         <label for="abailability">Availability(In Years)</label> 
          <input type="text" name="availability" id="BHK" placeholder="Enter availability here" required pattern="[0-9]">
-
+		<label for="abailability">Contact No.</label> 
+         <input type="text" name="contact_no" id="contact_no" placeholder="Enter Contact No. here">
         <button type="submit">Submit</button>
         </form>
     </div>

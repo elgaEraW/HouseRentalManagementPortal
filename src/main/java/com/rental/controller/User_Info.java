@@ -10,15 +10,15 @@ import javax.servlet.http.HttpSession;
 import com.rental.model.HomeDB;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class User_Info
  */
-public class Home extends HttpServlet {
+public class User_Info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public User_Info() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,16 +37,23 @@ public class Home extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		HomeDB hdb = new HomeDB();
-		String[][] s = hdb.getData();
-		HttpSession session = request.getSession();
-		session.setAttribute("Data", s);
-		session.setAttribute("State", 0);
-		session.setAttribute("Add", 0);
-		session.setAttribute("Contact_Info",0);
-		session.setAttribute("refresh",0);
-		response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/Home.jsp");
 		
+		String cd = request.getParameter("cd");
+		HttpSession session = request.getSession();
+		int state = (int)session.getAttribute("State");
+		String id = (String)session.getAttribute("ID_NO");
+		String user = (String)session.getAttribute("User_Name");
+		session.setAttribute("Contact_Info",1);
+		HomeDB hdb = new HomeDB();
+		String s[] = null;
+		if(state == 0) {
+			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/login.jsp");
+		}
+		else {
+			s = hdb.getUserData(id,user);
+			session.setAttribute("User_Info", s);
+			response.sendRedirect("http://localhost:8080/HouseRentalManagementPortal/jsp/user_info.jsp");
+		}
 	}
 
 }

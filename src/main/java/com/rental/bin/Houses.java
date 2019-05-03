@@ -10,8 +10,15 @@ public class Houses {
 	private String availability;
 	private String user;
 	private String price;
+	private String contact_no;
 	
 	
+	public String getContact_no() {
+		return contact_no;
+	}
+	public void setContact_no(String contact_no) {
+		this.contact_no = contact_no;
+	}
 	public String getPrice() {
 		return price;
 	}

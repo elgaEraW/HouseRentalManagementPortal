@@ -13,24 +13,27 @@
 
 			h1
 			{
-				text-align: center;
+					
 				color: black;
 				font-size: 50px;
+				padding-left:320px;
 			}
 
 			.container
 			{
 				padding:50px 0 0 0;
-
+				
 			}
 			p
 			{
 				text-align: center;
+				
 			}
 			input[type=text], input[type=password] {
 			  width: 100%;
 			  padding: 10px;
-			  margin: 5px 0 25px 0;
+			 margin-left:300px;
+			 margin-top:10px;
 			  display: inline-block;
 			  border: none;
 			  background: #f1f1f1;
@@ -46,6 +49,8 @@
 				padding-top: 10px;	
 				padding-bottom: 10px;
 				border-radius: 20px;
+				margin-left:300px;
+				margin-top:10px;
 			}
 			.signupbtn:hover
 			{
@@ -55,7 +60,11 @@
 			{
 				padding-top: 20px;
 			}
-			
+			label
+			{
+				padding-left:330px;
+				margin-top:20px;
+			}
 
 
 	</style>
@@ -86,7 +95,7 @@
 			<div class="raw">
 				<div class="col-md-6 offset-md-3">
 			<h1>Sign Up</h1>
-			<p>Please Enter Details to create account</p>
+			
 
 
 

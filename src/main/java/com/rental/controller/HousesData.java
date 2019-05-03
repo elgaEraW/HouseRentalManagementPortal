@@ -52,6 +52,7 @@ public class HousesData extends HttpServlet {
 		h.setPayment_option(request.getParameter("payment_option"));
 		h.setAvailability(request.getParameter("availability"));
 		h.setPrice(request.getParameter("price"));
+		h.setContact_no(request.getParameter("contact_no"));
 		String st = hdb.insert(h);
 		HomeDB homedb = new HomeDB();
 		String[][] s = homedb.getData();

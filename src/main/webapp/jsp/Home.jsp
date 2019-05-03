@@ -122,6 +122,13 @@
 			<p></p>
 			<button type = "submit" name = "reset" value = "reset">Reset Filter</button>
 			</form>
+			
+			<form action="/HouseRentalManagementPortal/More_Info" method = "post">
+				<label>Enter ID of House for more details</label>
+				<input type = text name = "id" placeholder = "Enter the ID of the hHouse for more details">
+				<button type = submit>More Info</button>
+			</form>
+			
 		</div>
 		</div>
 		<div class = "a">
@@ -141,7 +148,6 @@
 					}
 					out.println("<br>");
 		%>
-		<button name="id" value = s[i][0] >More Info</button>
 		</div>
 		<%
 		

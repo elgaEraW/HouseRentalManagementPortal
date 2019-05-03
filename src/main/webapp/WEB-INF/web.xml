@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.rental.controller.Filter</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>More_Info</servlet-name>
+  	<display-name>More_Info</display-name>
+  	<description></description>
+  	<servlet-class>com.rental.controller.More_Info</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>User_Info</servlet-name>
+  	<display-name>User_Info</display-name>
+  	<description></description>
+  	<servlet-class>com.rental.controller.User_Info</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/Register</url-pattern>
@@ -53,5 +65,13 @@
   <servlet-mapping>
   	<servlet-name>Filter</servlet-name>
   	<url-pattern>/Filter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>More_Info</servlet-name>
+  	<url-pattern>/More_Info</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>User_Info</servlet-name>
+  	<url-pattern>/User_Info</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -138,6 +138,18 @@
 			<p>House Type</p>
 			<button type = "submit" name = "type" value = "Flat">Flat</button>
 			<button type = "submit" name = "type" value = "Bunglow">Buglow</button>
+			<p></p>
+			<button type = "submit" name = "reset" value = "reset">Reset Filter</button>
+			<p></p>
+			
+			
+			
+			</form>
+			
+			<form action="/HouseRentalManagementPortal/More_Info" method = "post">
+				<label>Enter ID of House for more details</label>
+				<input type = text name = "id" placeholder = "Enter the ID of the hHouse for more details">
+				<button type = submit>More Info</button>
 			</form>
 		</div>
 		<a href="logout.jsp">logout</a>
@@ -159,8 +171,10 @@
 						out.println(g[j]+" : "+s[i][j]+"<br>");
 					}
 					out.println("<br>");
+					String id = s[i][0];
+					
 		%>
-		<button name="id" value = s[i][0] >More Info</button>
+		
 		</div>
 		<%
 		

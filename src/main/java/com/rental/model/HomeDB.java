@@ -96,4 +96,54 @@ public class HomeDB {
 		return s;
 	}
 	
+	public String[] getIdData(String id) {
+		String[] O = new String[10];
+		int k=0;
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM houses");
+			while(rs.next()) {
+				if(rs.getString("id").equals(id)) {
+					for(int j =0;j<10;j++) {
+						O[j] = rs.getString(g[j]);
+					}
+					k++;
+				}
+			}
+			//g = rs.getString(2);
+			//System.out.println(s+"Hello");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return O;
+	}
+	
+	public String[] getUserData(String id,String user) {
+		String O[] = new String[3];
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM houses");
+			while(rs.next()) {
+				if(rs.getString("id").equals(id)) {
+					O[2] = rs.getString("contact_no");
+					O[0] = rs.getString("user");
+				}
+			}
+			
+			ResultSet rs1 = stmt.executeQuery("SELECT * FROM users");
+			
+			while(rs1.next()) {
+				if(rs1.getString("Name").equals(user)) {
+					O[1] = rs1.getString("Id");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return O;
+	}
+	
 }
